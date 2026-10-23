@@ -1,0 +1,80 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "item_id": {
+      "type": "string"
+    },
+    "item_name": {
+      "type": "string"
+    },
+    "item_photo_url": {
+      "type": "string"
+    },
+    "price": {
+      "type": "number"
+    },
+    "quantity": {
+      "type": "number",
+      "default": 1
+    },
+    "total": {
+      "type": "number"
+    },
+    "buyer_email": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending_verification",
+        "paid",
+        "rejected",
+        "collected"
+      ],
+      "default": "pending_verification"
+    },
+    "pickup_code": {
+      "type": "string",
+      "description": "Unique code generated when payment is confirmed"
+    },
+    "code_redeemed": {
+      "type": "boolean",
+      "default": false
+    },
+    "redeemed_date": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "item_id",
+    "item_name"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "name": "Cat",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The cat's name"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "Photo of the cat"
+    },
+    "age_label": {
+      "type": "string",
+      "description": "Human readable age, e.g. 4 months"
+    },
+    "sex": {
+      "type": "string",
+      "enum": [
+        "Female",
+        "Male",
+        "Unknown"
+      ]
+    },
+    "location": {
+      "type": "string",
+      "description": "Where on campus the cat lives"
+    },
+    "health_status": {
+      "type": "string",
+      "enum": [
+        "healthy",
+        "monitoring",
+        "recovering",
+        "treatment",
+        "special"
+      ],
+      "default": "healthy"
+    },
+    "health_summary": {
+      "type": "string",
+      "description": "Short plain-language update on the cat's health"
+    },
+    "last_checkup": {
+      "type": "string",
+      "format": "date"
+    },
+    "vaccinated": {
+      "type": "boolean"
+    },
+    "sterilized": {
+      "type": "boolean"
+    },
+    "weight_kg": {
+      "type": "number"
+    },
+    "needs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Supplies or care this cat still needs"
+    },
+    "personality": {
+      "type": "string"
+    },
+    "ready_for_adoption": {
+      "type": "boolean"
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "active": {
+      "type": "boolean",
+      "default": true
+    }
+  },
+  "required": [
+    "name",
+    "health_status"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

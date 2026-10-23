@@ -1,0 +1,132 @@
+{
+  "name": "Bedazzle",
+  "type": "object",
+  "properties": {
+    "cat_id": {
+      "type": "string",
+      "description": "Campus cat the artwork is based on; empty for the user's own uploaded photo"
+    },
+    "cat_name": {
+      "type": "string"
+    },
+    "image_url": {
+      "type": "string",
+      "description": "Base photo of the artwork (cat photo or user upload)"
+    },
+    "caption": {
+      "type": "string"
+    },
+    "author_name": {
+      "type": "string"
+    },
+    "author_role": {
+      "type": "string",
+      "enum": [
+        "user",
+        "admin"
+      ],
+      "default": "user",
+      "description": "Role of the author when the post was made; admins' posts show as announcements"
+    },
+    "gems": {
+      "type": "array",
+      "description": "Decorations placed on the photo: colour gems, pen strokes or text overlays",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "enum": [
+              "shape",
+              "diamond",
+              "pen",
+              "text"
+            ],
+            "default": "shape"
+          },
+          "x": {
+            "type": "number"
+          },
+          "y": {
+            "type": "number"
+          },
+          "glyph": {
+            "type": "string"
+          },
+          "shape": {
+            "type": "string",
+            "description": "Legacy sticker shape for older diamond decorations"
+          },
+          "points": {
+            "type": "array",
+            "description": "Stroke points (x, y in percent) when kind is pen",
+            "items": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              }
+            }
+          },
+          "text": {
+            "type": "string",
+            "description": "Words shown when kind is text"
+          },
+          "font": {
+            "type": "string",
+            "enum": [
+              "serif",
+              "sans"
+            ]
+          },
+          "color": {
+            "type": "string"
+          },
+          "size": {
+            "type": "number"
+          },
+          "rotation": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "image_url"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "created_by_id": "{{user.id}}"
+    },
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

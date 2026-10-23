@@ -1,0 +1,239 @@
+{
+  "name": "SiteSetting",
+  "type": "object",
+  "properties": {
+    "collective_name": {
+      "type": "string",
+      "default": "Campus Cat Collective"
+    },
+    "school_name": {
+      "type": "string"
+    },
+    "tagline": {
+      "type": "string"
+    },
+    "contact_email": {
+      "type": "string",
+      "format": "email"
+    },
+    "meeting_info": {
+      "type": "string",
+      "description": "When and where volunteers meet"
+    },
+    "donation_qr_url": {
+      "type": "string",
+      "description": "Image of the donation QR code"
+    },
+    "donation_link": {
+      "type": "string",
+      "description": "Optional donation page link shown next to the QR code"
+    },
+    "donation_note": {
+      "type": "string"
+    },
+    "payment_qr_url": {
+      "type": "string",
+      "description": "QR code buyers scan to pay for shop orders"
+    },
+    "pickup_location": {
+      "type": "string",
+      "description": "Where buyers pick up their purchases"
+    },
+    "hero_eyebrow": {
+      "type": "string"
+    },
+    "hero_title": {
+      "type": "string"
+    },
+    "hero_subtitle": {
+      "type": "string"
+    },
+    "hero_cta_primary": {
+      "type": "string"
+    },
+    "hero_cta_secondary": {
+      "type": "string"
+    },
+    "hero_note": {
+      "type": "string"
+    },
+    "stat_1_label": {
+      "type": "string"
+    },
+    "stat_2_label": {
+      "type": "string"
+    },
+    "stat_3_label": {
+      "type": "string"
+    },
+    "stat_4_label": {
+      "type": "string"
+    },
+    "stat_4_value": {
+      "type": "string"
+    },
+    "ledger_eyebrow": {
+      "type": "string"
+    },
+    "ledger_title": {
+      "type": "string"
+    },
+    "ledger_subtitle": {
+      "type": "string"
+    },
+    "ledger_empty_title": {
+      "type": "string"
+    },
+    "ledger_empty_subtitle": {
+      "type": "string"
+    },
+    "care_eyebrow": {
+      "type": "string"
+    },
+    "care_title": {
+      "type": "string"
+    },
+    "care_step1_title": {
+      "type": "string"
+    },
+    "care_step1_body": {
+      "type": "string"
+    },
+    "care_step2_title": {
+      "type": "string"
+    },
+    "care_step2_body": {
+      "type": "string"
+    },
+    "care_step3_title": {
+      "type": "string"
+    },
+    "care_step3_body": {
+      "type": "string"
+    },
+    "care_step4_title": {
+      "type": "string"
+    },
+    "care_step4_body": {
+      "type": "string"
+    },
+    "care_footnote": {
+      "type": "string"
+    },
+    "donate_eyebrow": {
+      "type": "string"
+    },
+    "donate_title": {
+      "type": "string"
+    },
+    "donate_description": {
+      "type": "string"
+    },
+    "donate_cost1_title": {
+      "type": "string"
+    },
+    "donate_cost1_body": {
+      "type": "string"
+    },
+    "donate_cost2_title": {
+      "type": "string"
+    },
+    "donate_cost2_body": {
+      "type": "string"
+    },
+    "donate_cost3_title": {
+      "type": "string"
+    },
+    "donate_cost3_body": {
+      "type": "string"
+    },
+    "donate_receipt_note": {
+      "type": "string"
+    },
+    "donate_scan_label": {
+      "type": "string"
+    },
+    "donate_qr_placeholder": {
+      "type": "string"
+    },
+    "donate_cta_open": {
+      "type": "string"
+    },
+    "donate_cta_email": {
+      "type": "string"
+    },
+    "volunteer_eyebrow": {
+      "type": "string"
+    },
+    "volunteer_title": {
+      "type": "string"
+    },
+    "volunteer_description": {
+      "type": "string"
+    },
+    "volunteer_meeting_label": {
+      "type": "string"
+    },
+    "volunteer_meeting_note": {
+      "type": "string"
+    },
+    "volunteer_cta": {
+      "type": "string"
+    },
+    "volunteer_role1_title": {
+      "type": "string"
+    },
+    "volunteer_role1_commitment": {
+      "type": "string"
+    },
+    "volunteer_role1_body": {
+      "type": "string"
+    },
+    "volunteer_role2_title": {
+      "type": "string"
+    },
+    "volunteer_role2_commitment": {
+      "type": "string"
+    },
+    "volunteer_role2_body": {
+      "type": "string"
+    },
+    "volunteer_role3_title": {
+      "type": "string"
+    },
+    "volunteer_role3_commitment": {
+      "type": "string"
+    },
+    "volunteer_role3_body": {
+      "type": "string"
+    },
+    "volunteer_footnote": {
+      "type": "string"
+    },
+    "footer_colophon": {
+      "type": "string"
+    },
+    "footer_donation_note": {
+      "type": "string"
+    }
+  },
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  },
+  "required": []
+}
